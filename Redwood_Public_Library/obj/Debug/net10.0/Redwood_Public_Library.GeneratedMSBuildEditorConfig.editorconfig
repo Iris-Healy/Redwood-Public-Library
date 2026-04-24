@@ -11,45 +11,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Redwood_Public_Library
 build_property.RootNamespace = Redwood_Public_Library
-build_property.ProjectDir = C:\Users\aidan\Documents\School\ITEC\ITEC 2505\Redwood Public Library\Redwood_Public_Library\
+build_property.ProjectDir = /workspaces/Redwood-Public-Library/Redwood_Public_Library/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\aidan\Documents\School\ITEC\ITEC 2505\Redwood Public Library\Redwood_Public_Library
+build_property.MSBuildProjectDirectory = /workspaces/Redwood-Public-Library/Redwood_Public_Library
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/MemberCheckedOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTWVtYmVyQ2hlY2tlZE91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/SearchCatalog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2VhcmNoQ2F0YWxvZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Public_Library/Pages/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ay5ebb503x
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/workspaces/Redwood-Public-Library/Redwood_Public_Library/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8i69qhfxtx

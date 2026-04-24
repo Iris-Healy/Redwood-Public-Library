@@ -6,25 +6,25 @@
 
 <h1>Login</h1>
 
-<form method="post" class="row g-3">
-    <div class="col-md-6">
+<form method="post" class="row g-3 justify-content-center">
+    <div class="col-12 col-md-6 mx-auto">
         <label asp-for="Username" class="form-label"></label>
         <input asp-for="Username" class="form-control" />
         <span asp-validation-for="Username" class="text-danger"></span>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-12 col-md-6 mx-auto">
         <label asp-for="Password" class="form-label"></label>
         <input asp-for="Password" type="password" class="form-control" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
-    <div class="col-12 form-check">
+    <div class="col-12 col-md-6 mx-auto form-check">
         <input asp-for="IsStaff" class="form-check-input" />
-        <label asp-for="IsStaff" class="form-check-label"></label>
+        <label asp-for="IsStaff" class="form-check-label">I am Library Staff</label>
     </div>
 
-    <div class="col-12">
+    <div class="col-12 col-md-6 mx-auto text-center">
         <button type="submit" class="btn btn-primary">Log in</button>
     </div>
 </form>

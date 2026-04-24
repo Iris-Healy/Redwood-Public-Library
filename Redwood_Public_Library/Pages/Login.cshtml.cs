@@ -1,34 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
-using System.Diagnostics.Eventing.Reader;
-using System.Runtime.CompilerServices;
-using System.Security.AccessControl;
-using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Redwood_Public_Library.Pages
 {
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public string Username { get; set; }
+        public string Username { get; set; } = string.Empty;
 
         [BindProperty]
-        public string Password { get; set; }
+        public string Password { get; set; } = string.Empty;
+
+        private UserLogin? UserToLogin { get; set; }
+
+        private AppUser UserInfo { get; set; } = new AppUser();
 
         [BindProperty]
-
-        private UserLogin UserToLogin { get; set;}
-
-        private User UserInfo { get; set; }
-
         public bool IsStaff { get; set; }
 
-        public string Message { get; set; }
+        public string Message { get; set; } = string.Empty;
 
         public void OnGet()
         {
@@ -60,11 +55,11 @@ namespace Redwood_Public_Library.Pages
                         // Claim for the user's role (e.g., Member, Librarian, or Admin), used for authorization
                         new Claim(ClaimTypes.Role, UserInfo.Role)
                     };
-                    // Create a ClaimsIdentity with the claims, using the Identity application's authentication scheme
-                    var identity = new ClaimsIdentity(claims, IdentityConstants.ApplicationScheme);
+                    // Create a ClaimsIdentity with the claims, using the cookie authentication scheme
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     // Sign in the user by creating a ClaimsPrincipal and storing it in the HttpContext
                     // This establishes the user's authenticated session
-                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
                     Message = $"Welcome, {UserInfo.Name}! You have successfully logged in as {UserInfo.Role}.";
                     return RedirectToPage("/Index");
                 }
@@ -88,11 +83,11 @@ namespace Redwood_Public_Library.Pages
                         // Claim for the user's role (e.g., Member, Librarian, or Admin), used for authorization
                         new Claim(ClaimTypes.Role, UserInfo.Role)
                     };
-                    // Create a ClaimsIdentity with the claims, using the Identity application's authentication scheme
-                    var identity = new ClaimsIdentity(claims, IdentityConstants.ApplicationScheme);
+                    // Create a ClaimsIdentity with the claims, using the cookie authentication scheme
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     // Sign in the user by creating a ClaimsPrincipal and storing it in the HttpContext
                     // This establishes the user's authenticated session
-                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
                     Message = $"Welcome, {UserInfo.Name}! You have successfully logged in as {UserInfo.Role}.";
                     return RedirectToPage("/Index");
                 }
@@ -125,8 +120,8 @@ namespace Redwood_Public_Library.Pages
                         {
                             UserToLogin = new UserLogin
                             {
-                                Username = reader.GetString(1),
-                                Password = reader.GetString(2)
+                                Username = reader.GetString(0),
+                                Password = reader.GetString(1)
                             };
                         }
                     }
@@ -156,8 +151,8 @@ namespace Redwood_Public_Library.Pages
                         {
                             UserToLogin = new UserLogin
                             {
-                                Username = reader.GetString(1),
-                                Password = reader.GetString(2)
+                                Username = reader.GetString(0),
+                                Password = reader.GetString(1)
                             };
                         }
                     }
@@ -167,7 +162,7 @@ namespace Redwood_Public_Library.Pages
 
         public void MemberUserInfoPull(string username)
         {
-            UserInfo = new User();
+            UserInfo = new AppUser();
             string connectionString = "Server=localhost;Database=Redwood_Public_Library;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -189,7 +184,7 @@ namespace Redwood_Public_Library.Pages
                     {
                         while (reader.Read())
                         {
-                            UserInfo = new User
+                            UserInfo = new AppUser
                             {
                                 Name = reader.GetString(0),
                                 Username = reader.GetString(1),
@@ -204,7 +199,7 @@ namespace Redwood_Public_Library.Pages
 
         public void StaffUserInfoPull(string username)
         {
-            UserInfo = new User();
+            UserInfo = new AppUser();
             string connectionString = "Server=localhost;Database=Redwood_Public_Library;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -226,7 +221,7 @@ namespace Redwood_Public_Library.Pages
                     {
                         while (reader.Read())
                         {
-                            UserInfo = new User
+                            UserInfo = new AppUser
                             {
                                 Name = reader.GetString(0),
                                 Username = reader.GetString(1),
@@ -238,19 +233,17 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-
-
-        public class UserLogin
-        {
-            public string Username { get; set; }
-            public string Password { get; set; }
-        }
-        public class User
-        {
-            public string Name { get; set; }
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public string Role { get; set; }
-        }
+    }
+public class UserLogin
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+    public class AppUser
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Username { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
     }
 }
