@@ -7,6 +7,8 @@ using System.Diagnostics.Eventing.Reader;
 using System.Runtime.CompilerServices;
 using System.Security.AccessControl;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Redwood_Public_Library.Pages
 {
@@ -23,7 +25,7 @@ namespace Redwood_Public_Library.Pages
         private UserLogin UserToLogin { get; set;}
 
         private User UserInfo { get; set; }
-        
+
         public bool IsStaff { get; set; }
 
         public string Message { get; set; }
@@ -33,15 +35,15 @@ namespace Redwood_Public_Library.Pages
 
         }
 
-        public void OnPost()
+        public async Task<IActionResult> OnPost()
         {
             if (string.IsNullOrWhiteSpace(Username) || string.IsNullOrWhiteSpace(Password))
             {
                 Message = "Please enter both username and password.";
-                return;
+                return Page();
             }
 
-            var role = IsStaff ? "Staff" : "User";
+            var role = IsStaff ? "Librarian" : "Member";
             Message = $"Login submitted for {Username} as {role}.";
 
             if (IsStaff)
@@ -50,11 +52,26 @@ namespace Redwood_Public_Library.Pages
                 if (UserToLogin != null && UserToLogin.Password == Password)
                 {
                     StaffUserInfoPull(Username);
-                    Message = $"Welcome, {Username}! You have successfully logged in as staff.";
+                    // Create a list of claims to represent the authenticated user's identity and permissions
+                    var claims = new List<Claim>
+                    {
+                        // Claim for the user's name, used for displaying the user's identity
+                        new Claim(ClaimTypes.Name, Username),
+                        // Claim for the user's role (e.g., Member, Librarian, or Admin), used for authorization
+                        new Claim(ClaimTypes.Role, UserInfo.Role)
+                    };
+                    // Create a ClaimsIdentity with the claims, using the Identity application's authentication scheme
+                    var identity = new ClaimsIdentity(claims, IdentityConstants.ApplicationScheme);
+                    // Sign in the user by creating a ClaimsPrincipal and storing it in the HttpContext
+                    // This establishes the user's authenticated session
+                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
+                    Message = $"Welcome, {UserInfo.Name}! You have successfully logged in as {UserInfo.Role}.";
+                    return RedirectToPage("/Index");
                 }
                 else
                 {
                     Message = "Invalid staff username or password.";
+                    return Page();
                 }
             }
             else
@@ -63,15 +80,28 @@ namespace Redwood_Public_Library.Pages
                 if (UserToLogin != null && UserToLogin.Password == Password)
                 {
                     MemberUserInfoPull(Username);
-                    Message = $"Welcome, {Username}! You have successfully logged in as a member.";
+                    // Create a list of claims to represent the authenticated user's identity and permissions
+                    var claims = new List<Claim>
+                    {
+                        // Claim for the user's name, used for displaying the user's identity
+                        new Claim(ClaimTypes.Name, Username),
+                        // Claim for the user's role (e.g., Member, Librarian, or Admin), used for authorization
+                        new Claim(ClaimTypes.Role, UserInfo.Role)
+                    };
+                    // Create a ClaimsIdentity with the claims, using the Identity application's authentication scheme
+                    var identity = new ClaimsIdentity(claims, IdentityConstants.ApplicationScheme);
+                    // Sign in the user by creating a ClaimsPrincipal and storing it in the HttpContext
+                    // This establishes the user's authenticated session
+                    await HttpContext.SignInAsync(IdentityConstants.ApplicationScheme, new ClaimsPrincipal(identity));
+                    Message = $"Welcome, {UserInfo.Name}! You have successfully logged in as {UserInfo.Role}.";
+                    return RedirectToPage("/Index");
                 }
                 else
                 {
                     Message = "Invalid member username or password.";
+                    return Page();
                 }
             }
-
-
         }
         public void MemberLoginPull(string username)
         {
@@ -82,7 +112,7 @@ namespace Redwood_Public_Library.Pages
             {
                 connection.Open();
                 //Sql Query retrieving book information based on selected author
-                string sql = @"SELECT ml.M_Username, ml.M_Username
+                string sql = @"SELECT ml.M_Username, ml.M_Password
                                FROM Member_Logins ml
                                WHERE ml.M_Username = @Username;";
                 using (SqlCommand command = new SqlCommand(sql, connection))
