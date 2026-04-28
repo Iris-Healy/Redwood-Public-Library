@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Redwood_Public_Library")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b92c17aa53dafefc651bc422aa35cd09326a78a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b78c2868ea1a44e766ca75fd3aa91298d05de980")]
 [assembly: System.Reflection.AssemblyProductAttribute("Redwood_Public_Library")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Redwood_Public_Library")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
