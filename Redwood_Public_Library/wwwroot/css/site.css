@@ -19,6 +19,17 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #333333; /* Dark grey background */
+  color: #008080; /* Teal text color */
+}
+
+.navbar {
+  color: #008080 !important; /* Teal text for navbar */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #008080 !important; /* Ensure links and brand are teal */
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

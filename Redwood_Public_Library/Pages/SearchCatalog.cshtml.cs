@@ -15,6 +15,7 @@ namespace Redwood_Public_Library.Pages
         public string? SearchTerm { get; set; } = string.Empty;
 
         public string Message { get; set; } = string.Empty;
+        
 
         public void Onget()
         {

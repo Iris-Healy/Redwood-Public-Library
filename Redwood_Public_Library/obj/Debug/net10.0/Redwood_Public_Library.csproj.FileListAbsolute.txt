@@ -339,7 +339,6 @@ C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Pu
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
-/workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/ioh6ckezhm-{0}-lugek5hnai-lugek5hnai.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/119t2xiigo-{0}-61n19gt1b8-61n19gt1b8.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/ou7hnqa1kf-{0}-fr7q2aak1r-fr7q2aak1r.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/k6pgskcvu3-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -401,8 +400,6 @@ C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Pu
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/y02bod9ec6-{0}-muycvpuwrr-muycvpuwrr.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/sodwbc1v4t-{0}-87fc7y1x7t-87fc7y1x7t.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/evjxrmnsfm-{0}-jfsiqqwiad-jfsiqqwiad.gz
-/workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/nlvhnscfky-{0}-hpv20p0aon-hpv20p0aon.gz
-/workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/kei67474fx-{0}-hpv20p0aon-hpv20p0aon.gz
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/staticwebassets.build.json
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/staticwebassets.build.json.cache
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/staticwebassets.development.json
@@ -414,3 +411,6 @@ C:/Users/aidan/Documents/School/ITEC/ITEC 2505/Redwood Public Library/Redwood_Pu
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/Redwood_Public_Library.pdb
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/Redwood_Public_Library.genruntimeconfig.cache
 /workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/ref/Redwood_Public_Library.dll
+/workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/ioh6ckezhm-{0}-1qa4tum2tx-1qa4tum2tx.gz
+/workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/nlvhnscfky-{0}-4s5fs9iwa9-4s5fs9iwa9.gz
+/workspaces/Redwood-Public-Library/Redwood_Public_Library/obj/Debug/net10.0/compressed/kei67474fx-{0}-4s5fs9iwa9-4s5fs9iwa9.gz

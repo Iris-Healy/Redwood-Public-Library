@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Redwood_Public_Library</title>
+    <title>@ViewData["Title"] - Redwood Public Library</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">Redwood_Public_Library</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -21,16 +21,28 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link asp-area="" asp-page="/Login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                            <a class="nav-link asp-area="" asp-page="/SearchCatalog">Search Catalog</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/SearchCatalog">Search Catalog</a>
+                        @if (User?.IsInRole("Member") == true)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/MemberCheckedOut">My Checked Out Books</a>
+                            </li>
+                        }
+                        @if (User?.IsInRole("Member") == true
+                        || User?.IsInRole("Librarian") == true
+                        || User?.IsInRole("Admin") == true)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" style="position: absolute; right: 0;" asp-area="" asp-page="/Logout">Logout</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

@@ -18,7 +18,7 @@ namespace Redwood_Public_Library.Pages
 
         private UserLogin? UserToLogin { get; set; }
 
-        private AppUser UserInfo { get; set; } = new AppUser();
+        public AppUser UserInfo { get; set; } = new AppUser();
 
         [BindProperty]
         public bool IsStaff { get; set; }
@@ -60,7 +60,6 @@ namespace Redwood_Public_Library.Pages
                     // Sign in the user by creating a ClaimsPrincipal and storing it in the HttpContext
                     // This establishes the user's authenticated session
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
-                    Message = $"Welcome, {UserInfo.Name}! You have successfully logged in as {UserInfo.Role}.";
                     return RedirectToPage("/Index");
                 }
                 else
@@ -88,7 +87,6 @@ namespace Redwood_Public_Library.Pages
                     // Sign in the user by creating a ClaimsPrincipal and storing it in the HttpContext
                     // This establishes the user's authenticated session
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
-                    Message = $"Welcome, {UserInfo.Name}! You have successfully logged in as {UserInfo.Role}.";
                     return RedirectToPage("/Index");
                 }
                 else
@@ -98,7 +96,8 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-        public void MemberLoginPull(string username)
+        //Method to Pull User Login info from database based on selected username to store in UserLogin Object to be checked for validity
+        private void MemberLoginPull(string username)
         {
             UserToLogin = new UserLogin();
 
@@ -106,7 +105,6 @@ namespace Redwood_Public_Library.Pages
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                //Sql Query retrieving book information based on selected author
                 string sql = @"SELECT ml.M_Username, ml.M_Password
                                FROM Member_Logins ml
                                WHERE ml.M_Username = @Username;";
@@ -128,8 +126,8 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-
-        public void StaffLoginPull(string username)
+        //Method to Pull Staff Login info from database based on selected username to store in UserLogin Object to be checked for validity
+        private void StaffLoginPull(string username)
         {
             UserToLogin = new UserLogin();
 
@@ -159,8 +157,8 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-
-        public void MemberUserInfoPull(string username)
+        //Method to Pull Member User Info into the Appuser Object for use across the application
+        private void MemberUserInfoPull(string username)
         {
             UserInfo = new AppUser();
             string connectionString = "Server=localhost;Database=Redwood_Public_Library;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;";
@@ -196,8 +194,8 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-
-        public void StaffUserInfoPull(string username)
+        //Method to Pull Staff User Info into the Appuser Object for use across the application
+        private void StaffUserInfoPull(string username)
         {
             UserInfo = new AppUser();
             string connectionString = "Server=localhost;Database=Redwood_Public_Library;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;";
@@ -234,7 +232,7 @@ namespace Redwood_Public_Library.Pages
             }
         }
     }
-public class UserLogin
+    public class UserLogin
     {
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;

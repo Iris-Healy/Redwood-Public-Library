@@ -1,0 +1,39 @@
+@page 
+@model Redwood_Public_Library.Pages.MemberCheckedOutModel
+@{
+    ViewData["Title"] = "Checked Out Books";
+}
+<h2> @Model.MemberName's Checked Out Books</h2>
+
+@if (Model.CheckedOutBooks != null && Model.CheckedOutBooks.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Loan Date</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.CheckedOutBooks)
+            {
+                <tr>
+                    <td>@book.Title</td>
+                    <td>@book.ISBN</td>
+                    <td>@book.Author</td>
+                    <td>@book.Price.ToString("C")</td>
+                    <td>@book.LoanDate.ToShortDateString()</td>
+                    <td>@book.DueDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>You have no books currently checked out.</p>
+}
