@@ -104,6 +104,7 @@ namespace Redwood_Public_Library.Pages
             string connectionString = "Server=localhost;Database=Redwood_Public_Library;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                //SQL Query retriving username and password information based on selected username
                 connection.Open();
                 string sql = @"SELECT ml.M_Username, ml.M_Password
                                FROM Member_Logins ml
@@ -116,6 +117,7 @@ namespace Redwood_Public_Library.Pages
                     {
                         while (reader.Read())
                         {
+                            //Insert Qeried SQL data into the UserLogin Object for validity checking
                             UserToLogin = new UserLogin
                             {
                                 Username = reader.GetString(0),
@@ -142,7 +144,7 @@ namespace Redwood_Public_Library.Pages
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@Username", username);
-
+                    //Insert Qeried SQL data into the USerLogin Object for validity checking
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -157,13 +159,14 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-        //Method to Pull Member User Info into the Appuser Object for use across the application
+        //Method to Pull Member User Info into the Appuser Object for use across the application via cookies
         private void MemberUserInfoPull(string username)
         {
             UserInfo = new AppUser();
             string connectionString = "Server=localhost;Database=Redwood_Public_Library;User Id=sa;Password=P@ssw0rd;TrustServerCertificate=True;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                //SQL Query for retreiving user information
                 connection.Open();
                 string sql = @"SELECT m.M_First_Name + ' ' + ISNULL(m.M_Middle_Name, '') + ' ' + m.M_Last_Name AS Member_Name,
                                ml.M_Username,
@@ -180,6 +183,7 @@ namespace Redwood_Public_Library.Pages
                     command.Parameters.AddWithValue("@Username", username);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
+                        //Insert The Queried data into the AppUser Object to be used across the application
                         while (reader.Read())
                         {
                             UserInfo = new AppUser
@@ -194,7 +198,7 @@ namespace Redwood_Public_Library.Pages
                 }
             }
         }
-        //Method to Pull Staff User Info into the Appuser Object for use across the application
+        //Method to Pull Staff User Info into the Appuser Object for use across the application via cookies
         private void StaffUserInfoPull(string username)
         {
             UserInfo = new AppUser();
@@ -232,11 +236,13 @@ namespace Redwood_Public_Library.Pages
             }
         }
     }
+    //class to hold the login information for a user, used for validating the user's credentials during login
     public class UserLogin
     {
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }
+    //class to hold information about the authenticated user 
     public class AppUser
     {
         public string Name { get; set; } = string.Empty;

@@ -5,6 +5,7 @@
 }
 <h2> @Model.MemberName's Checked Out Books</h2>
 
+<!-- Display a table of the member's checked out books if the list is not null and has items in it otherwise display a message that they have no books currently checked out -->
 @if (Model.CheckedOutBooks != null && Model.CheckedOutBooks.Count > 0)
 {
     <table class="table table-striped">

@@ -78,6 +78,7 @@ namespace Redwood_Public_Library.Pages
         }
     }
     
+    //Class to hold the book information for the member's checked out books
     public class UserBook
     {
         public string Title { get; set; }

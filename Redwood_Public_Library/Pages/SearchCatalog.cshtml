@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Catalog Search";
 }
-
+<!-- Search form for the library catalog -->
 <h1>Search Our Catalog</h1>
 <form method="post" class="row g-3 justify-content-center align-items-end">
     <div class="col-12 col-md-5">
         <input asp-for="SearchTerm" class="form-control" placeholder="Enter search term..." />
         <span asp-validation-for="SearchTerm" class="text-danger"></span>
     </div>
-
+<!-- Dropdown list to select which field to search by (Title, ISBN, Author, Genre) -->
     <div class="col-12 col-md-4">
         <label asp-for="SearchType" class="form-label"></label>
         <select asp-for="SearchType" class="form-select">
@@ -21,17 +21,18 @@
         </select>
         <span asp-validation-for="SearchType" class="text-danger"></span>
     </div>
-
+<!-- Search button to submit the form -->
     <div class="col-12 col-md-2 text-center">
         <button type="submit" class="btn btn-primary w-100">Search</button>
     </div>
 </form>
 
+<!-- Display message if there is one -->
 @if (!string.IsNullOrEmpty(Model.Message))
 {
     <div class="alert alert-info mt-3">@Model.Message</div>
 }
-
+<!-- Display search results if the booklist is not null and has items otherwise display a results message -->
 @if (Model.BookList != null && Model.BookList.Count > 0)
 {
     <h2 class="mt-4">Search Results:</h2>
@@ -46,6 +47,7 @@
             </tr>
         </thead>
         <tbody>
+        <!-- Loop through each book in the booklist and display its details in a table -->
             @foreach (var book in Model.BookList)
             {
                 <tr>

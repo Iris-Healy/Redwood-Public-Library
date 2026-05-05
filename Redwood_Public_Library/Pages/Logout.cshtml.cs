@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Redwood_Public_Library.Pages
-{
+{   //Authorize if user is signed in as a role 
     [Authorize(Roles = "Admin, Librarian, Member")]
     public class LogoutModel : PageModel
     {   //Clear the user's authentication cookie and redirect to the login page
