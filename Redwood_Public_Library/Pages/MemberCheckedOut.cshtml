@@ -26,7 +26,7 @@
                     <td>@book.Title</td>
                     <td>@book.ISBN</td>
                     <td>@book.Author</td>
-                    <td>@book.Price.ToString("C")</td>
+                    <td>$@book.Price.ToString("F2")</td>
                     <td>@book.LoanDate.ToShortDateString()</td>
                     <td>@book.DueDate.ToShortDateString()</td>
                 </tr>
